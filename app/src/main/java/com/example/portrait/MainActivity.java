@@ -3,6 +3,7 @@ package com.example.portrait;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.widget.ImageViewCompat;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     int pattern[]={R.drawable.pattern,R.drawable.none};
     int body[]={R.drawable.unknown,R.drawable.white,R.drawable.asian,R.drawable.pacific,R.drawable.black};
     int tabs[]={R.string.str0,R.string.str1,R.string.str2,R.string.str3,R.string.str4};
-    int colors[]={R.color.Red,R.color.Black,R.color.DarkOrange,R.color.Yellow,R.color.Green,R.color.Gray,R.color.Pink,R.color.Violet,R.color.Blue,R.color.DarkGreen};
+    int colors[]={R.color.Red,R.color.Black,R.color.DarkOrange,R.color.Yellow,R.color.Green,R.color.Gray,R.color.Pink,R.color.Violet,R.color.Blue,R.color.DarkGreen,R.color.White};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             piece = (ImageView) findViewById(R.id.bodyImg);
             piece.setImageResource(body[position]);
         }
-
+        ImageViewCompat.setImageTintList( piece,null);
     }
 
     private void updateColor(int position){
