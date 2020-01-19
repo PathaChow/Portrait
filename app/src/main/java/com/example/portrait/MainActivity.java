@@ -1,7 +1,10 @@
 package com.example.portrait;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.GridView;
 import android.view.View;
@@ -14,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     int currentTab;
     GridView clothGrid;
     GridView tabList;
+    GridView colorGrid;
 
     int bottoms[]={R.drawable.longskirt,R.drawable.pants,R.drawable.shorts,R.drawable.skirt,R.drawable.none};
     int tops[]={R.drawable.hoodie,R.drawable.longsleeve,R.drawable.tshirt,R.drawable.tanktop,R.drawable.none};
@@ -21,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     int pattern[]={R.drawable.pattern,R.drawable.none};
     int body[]={R.drawable.unknown,R.drawable.white,R.drawable.asian,R.drawable.pacific,R.drawable.black};
     int tabs[]={R.string.str0,R.string.str1,R.string.str2,R.string.str3,R.string.str4};
+    int colors[]={R.color.Red,R.color.Black,R.color.DarkOrange,R.color.Yellow,R.color.Green,R.color.Gray,R.color.Pink,R.color.Violet,R.color.Blue,R.color.DarkGreen};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        colorGrid = (GridView) findViewById(R.id.color_grids);
+        ColorAdapter colorAdapter = new ColorAdapter(getApplicationContext(), colors);
+        colorGrid.setAdapter(colorAdapter);
+        colorGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                updateColor(position);
+                // change the according clothing part
+            }
+        });
     }
 
     private void updateGrid(){
@@ -103,5 +118,27 @@ public class MainActivity extends AppCompatActivity {
             piece.setImageResource(body[position]);
         }
 
+    }
+
+    private void updateColor(int position){
+        ImageView piece;
+        if(currentTab==0) {
+            piece = (ImageView) findViewById(R.id.shirtImg);
+        }else if(currentTab==1){
+            piece = (ImageView) findViewById(R.id.pantsImg);
+        }else if(currentTab==2){
+            piece = (ImageView) findViewById(R.id.layerImg);
+        }else if(currentTab==3){
+            piece = (ImageView) findViewById(R.id.patternImg);
+        }else{
+            return;
+        }
+        if(piece.getDrawable()!=null){
+            DrawableCompat.setTint(
+                    DrawableCompat.wrap(piece.getDrawable()),
+                    ContextCompat.getColor(getApplicationContext(),colors[position])
+            );
+        }
+        return;
     }
 }
