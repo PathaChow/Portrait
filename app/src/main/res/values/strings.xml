@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Portrait</string>
-    <string name="str0">TOPS</string>
-    <string name="str1">BOTTOMS</string>
-    <string name="str2">LAYERS</string>
-    <string name="str3">PATTERN</string>
-    <string name="str4">BODY</string>
+    <string name="str0"><b>TOPS</b></string>
+    <string name="str1"><b>BOTTOMS</b></string>
+    <string name="str2"><b>LAYERS</b></string>
+    <string name="str3"><b>PATTERN</b></string>
+    <string name="str4"><b>BODY</b></string>
 </resources>

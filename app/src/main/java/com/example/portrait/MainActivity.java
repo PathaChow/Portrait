@@ -15,10 +15,10 @@ public class MainActivity extends AppCompatActivity {
     GridView clothGrid;
     GridView tabList;
 
-    int bottoms[]={R.drawable.longskirt,R.drawable.pants,R.drawable.shorts,R.drawable.skirt};
-    int tops[]={R.drawable.hoodie,R.drawable.longsleeve,R.drawable.tshirt,R.drawable.tanktop};
-    int layer[]={R.drawable.hat,R.drawable.suit,R.drawable.vest,R.drawable.wind};
-    int pattern[]={R.drawable.pattern};
+    int bottoms[]={R.drawable.longskirt,R.drawable.pants,R.drawable.shorts,R.drawable.skirt,R.drawable.none};
+    int tops[]={R.drawable.hoodie,R.drawable.longsleeve,R.drawable.tshirt,R.drawable.tanktop,R.drawable.none};
+    int layer[]={R.drawable.suit,R.drawable.vest,R.drawable.wind,R.drawable.none};
+    int pattern[]={R.drawable.pattern,R.drawable.none};
     int body[]={R.drawable.unknown,R.drawable.white,R.drawable.asian,R.drawable.pacific,R.drawable.black};
     int tabs[]={R.string.str0,R.string.str1,R.string.str2,R.string.str3,R.string.str4};
 
@@ -72,15 +72,31 @@ public class MainActivity extends AppCompatActivity {
         ImageView piece;
         if(currentTab==0) {
             piece = (ImageView) findViewById(R.id.shirtImg);
+            if(tops[position]==R.drawable.none){
+                piece.setImageResource(android.R.color.transparent);
+                return;
+            }
             piece.setImageResource(tops[position]);
         }else if(currentTab==1){
             piece = (ImageView) findViewById(R.id.pantsImg);
+            if(bottoms[position]==R.drawable.none){
+                piece.setImageResource(android.R.color.transparent);
+                return;
+            }
             piece.setImageResource(bottoms[position]);
         }else if(currentTab==2){
             piece = (ImageView) findViewById(R.id.layerImg);
+            if(layer[position]==R.drawable.none){
+                piece.setImageResource(android.R.color.transparent);
+                return;
+            }
             piece.setImageResource(layer[position]);
         }else if(currentTab==3){
             piece = (ImageView) findViewById(R.id.patternImg);
+            if(pattern[position]==R.drawable.none){
+                piece.setImageResource(android.R.color.transparent);
+                return;
+            }
             piece.setImageResource(pattern[position]);
         }else{
             piece = (ImageView) findViewById(R.id.bodyImg);

@@ -83,7 +83,7 @@
         android:footerDividersEnabled="false"
         android:numColumns="5"
         app:layout_constraintBottom_toTopOf="@+id/fragment_container"
-        android:background="#880088"
+        android:background="#013220"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -93,7 +93,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/fragment_container"
-        android:background="#1111FF"
+        android:background="#013220"
         android:layout_width="match_parent"
         android:layout_height="300dp">
         <GridView
@@ -103,7 +103,6 @@
             android:footerDividersEnabled="false"
             android:padding = "1dp"
             android:numColumns="4"
-            android:background="#444400"
             />
     </FrameLayout>
 
