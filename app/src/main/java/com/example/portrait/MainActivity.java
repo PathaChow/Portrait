@@ -7,10 +7,12 @@ import androidx.core.widget.ImageViewCompat;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.GridView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.content.Intent;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     GridView clothGrid;
     GridView tabList;
     GridView colorGrid;
+    ImageButton next;
 
     int bottoms[]={R.drawable.longskirt,R.drawable.pants,R.drawable.shorts,R.drawable.skirt,R.drawable.none};
     int tops[]={R.drawable.hoodie,R.drawable.longsleeve,R.drawable.tshirt,R.drawable.tanktop,R.drawable.none};
@@ -64,6 +67,15 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 updateColor(position);
                 // change the according clothing part
+            }
+        });
+
+        next = (ImageButton) findViewById(R.id.nextAct);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
             }
         });
     }
